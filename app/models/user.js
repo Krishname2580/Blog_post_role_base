@@ -1,10 +1,10 @@
 
-const mongoose=require('mongoose')
-const Schema= mongoose.Schema
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 
 
-const UserSchema=new Schema({
+const UserSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -22,27 +22,31 @@ const UserSchema=new Schema({
         type: String,
         required: true
     },
+    phone: {
+        type: String,
+        required: true
+    },
     role: {
         type: String,
-        enum: ['admin', 'user','author'],
+        enum: ['admin', 'user', 'author'],
         default: 'user'
     },
     isVerified: {
         type: Boolean,
         default: 'false'
     },
-    
-        isDeleted: {
-            type: Boolean,
-            default: false
-        }
-    
-},{
+
+    isDeleted: {
+        type: Boolean,
+        default: false
+    }
+
+}, {
     timestamps: true,
     versionKey: false
 })
 
 
-const userModel=mongoose.model('user',UserSchema)
+const userModel = mongoose.model('user', UserSchema)
 
-module.exports=userModel
+module.exports = userModel
