@@ -22,37 +22,52 @@ class AuthEjsController {
     }
 
     async registercreate(req, res) {
-        try {
-            const { name, email, phone, password } = req.body;
-            if (!name || !email || !phone || !password) {
-                console.log("all filed required");
+    try {
+        const { name, email, phone, password } = req.body;
 
-                return res.redirect("/register");
-            }
-            const existUser = await User.findOne({ email });
-            if (existUser) {
-                console.log("user already exist");
+        if (!name || !email || !phone || !password) {
 
-                return res.redirect("/register");
-            }
-            const salt = await bcrypt.genSalt(10);
-            const hashPassword = await bcrypt.hash(password, salt);
-            const userdata = new User({
-                name,
-                email,
-                phone,
-                password: hashPassword,
-            });
-            const result = await userdata.save();
-            if (result) {
-                console.log("user created successfully", result);
-                return res.redirect("/login");
-            }
-        } catch (error) {
-            console.log(error.message);
+            req.flash('error', 'All fields are required');
+
             return res.redirect("/register");
         }
+
+        const existUser = await User.findOne({ email });
+
+        if (existUser) {
+
+            req.flash('error', 'User already exists');
+            return res.redirect("/register");
+        }
+
+        const salt = await bcrypt.genSalt(10);
+        const hashPassword = await bcrypt.hash(password, salt);
+
+        const userdata = new User({
+            name,
+            email,
+            phone,
+            password: hashPassword,
+        });
+
+        const result = await userdata.save();
+
+        if (result) {
+
+            req.flash('success_msg', 'Registration successful');
+
+            return res.redirect("/login");
+        }
+
+    } catch (error) {
+
+        console.log(error);
+
+        req.flash('error', 'Something went wrong');
+
+        return res.redirect("/register");
     }
+}
     loginview(req, res) {
         res.render("login");
     }

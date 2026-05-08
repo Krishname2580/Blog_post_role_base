@@ -1,23 +1,24 @@
 
-const jwt=require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 
-const AuthCheck=(req,res,next)=>{
-    if(req.cookies && req.cookies.token){
-        jwt.verify(req.cookies.token,process.env.JWT_SECRET,(err,data)=>{
-            if(err){
+const AuthCheck = (req, res, next) => {
+    if (req.cookies && req.cookies.token) {
+        jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, data) => {
+            if (err) {
                 return res.status(400).json({
-                    status:false,
-                    message:"invalid token"
+                    status: false,
+                    message: "invalid token"
                 })
             }
-            req.user=data;
+            req.user = data;
             next();
         })
-    }else{
+    } else {
         next();
     }
-    
+
 }
 
 
-module.exports=AuthCheck
+
+module.exports = AuthCheck

@@ -6,6 +6,7 @@ const dbConnection = require('./app/config/dbcon')
 const cors = require('cors')
 const session=require('express-session')
 const cookieParser=require('cookie-parser')
+const flash = require('connect-flash')
 
 
 const app = express()
@@ -29,7 +30,12 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(cors())
-
+app.use(flash())
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error = req.flash('error');
+    next();
+});
 
 const route=require('./app/routes') 
 app.use(route)
