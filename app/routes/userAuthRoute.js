@@ -13,6 +13,7 @@ const router=express.Router()
 router.post('/register',userAuthController.Register)
 router.post('/login',userAuthController.login)
 router.get('/dashboard',UserAuthCheck,userAuthController.dashboard)
+router.post('/refresh-token', userAuthController.refreshToken);
 
 
 

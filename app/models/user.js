@@ -22,10 +22,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    phone: {
-        type: String,
-        required: true
-    },
+    // phone: {
+    //     type: String,
+    //     required: true
+    // },
     role: {
         type: String,
         enum: ['admin', 'user', 'author'],
@@ -34,6 +34,10 @@ const UserSchema = new Schema({
     isVerified: {
         type: Boolean,
         default: 'false'
+    },
+    refreshToken: {
+        type: String,
+        default: null
     },
 
     isDeleted: {
