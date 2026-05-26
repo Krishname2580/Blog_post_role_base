@@ -36,6 +36,8 @@ class UserAuthController {
                 email,
                 password: hashPassword
             })
+
+
             return res.status(200).json({
                 status: true,
                 message: 'User created successfully',
@@ -64,20 +66,22 @@ class UserAuthController {
             }
 
             const user = await User.findOne({ email })
-            console.log('user', user.name);
 
+            console.log(user);
             if (!user) {
                 return res.status(400).json({
                     status: false,
                     message: 'User does not exist'
                 })
             }
-            if (user.isVerified) {
-                return res.status(400).json({
-                    status: false,
-                    message: 'User is not verified'
-                })
-            }
+            // console.log('user', user.name);
+            
+            // if (!user.isVerified) {
+            //     return res.status(400).json({
+            //         status: false,
+            //         message: 'User is not verified'
+            //     })
+            // }
             const isMatch = await bcrypt.compare(password, user.password)
             if (!isMatch) {
                 return res.status(400).json({
@@ -128,6 +132,7 @@ class UserAuthController {
         }
 
     }
+
     async refreshToken(req, res) {
 
         try {

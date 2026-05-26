@@ -11,7 +11,7 @@ const UserAuthCheck = async(req,res,next)=>{
     try{
         const decode = jwt.verify(token, process.env.JWT_SECRET)
         req.user = decode
-        console.log(('afterlogin user', req.user));
+        console.log(('after login user', req.user));
         
     }catch(error){
         return res.status(400).json({

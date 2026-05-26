@@ -99,7 +99,7 @@ class BlogController {
 
             const blogs = await Blog.find({ isPublish: true })
 
-            return res.status(201).json({
+            return res.status(200).json({
                 status: true,
                 message: 'Blog fetch successfully',
                 data: blogs
@@ -116,7 +116,7 @@ class BlogController {
     async getBlogById(req,res){
         try{
             if(req.user.role !== 'user'){
-                return res.staus(400).json({
+                return res.status(400).json({
                     status: false,
                     message: 'Only user can view the publish blogs'
                 })

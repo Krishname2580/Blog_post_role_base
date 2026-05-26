@@ -6,7 +6,8 @@ const generateRefreshToken = (user) => {
         {
             id: user._id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            role: user.role
         },
         process.env.REFRESH_JWT_SECRET, { expiresIn: '7d' }
     );
