@@ -1,0 +1,434 @@
+{
+  "info": {
+    "_postman_id": "3ad6aaac-0adc-4ebe-994a-74de2d607949",
+    "name": "Blog Publish",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52068333",
+    "_collection_link": "https://go.postman.co/collection/52068333-3ad6aaac-0adc-4ebe-994a-74de2d607949?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Author Api",
+      "item": [
+        {
+          "name": "Author_Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Kp\",\r\n    \"email\": \"krishn@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5005/api/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Author_login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"krishna22@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5005/api/author/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "author",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create_Blog",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-access-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZjVmMTNjOGQ4MGMwM2I0ZmZjZDYxMSIsIm5hbWUiOiJLcmlzaDEyIiwiZW1haWwiOiJrcmlzaG5hMjJAZ21haWwuY29tIiwicm9sZSI6ImF1dGhvciIsImlhdCI6MTc3NzcyNjE1MCwiZXhwIjoxNzc3ODEyNTUwfQ._-hqQCGZkvuxeFReopnm-8tKhlj7BxvAdu8i2gPY01g",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"This is my first blog\",\r\n    \"content\": \"Today I learned how to create blog\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5005/api/author/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "author",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Author_Dashboard",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-access-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZjVmMTNjOGQ4MGMwM2I0ZmZjZDYxMSIsIm5hbWUiOiJLcmlzaDEyIiwiZW1haWwiOiJrcmlzaG5hMjJAZ21haWwuY29tIiwicm9sZSI6ImF1dGhvciIsImlhdCI6MTc4NDk3NDk3OSwiZXhwIjoxNzg1MDYxMzc5fQ.7XfRncl8bQ0pc9YQJOqIK0ub5iTNDcsdx3rnuCs0y8I",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"krishna22@gmail.com\",\r\n    \"password\": \"12345\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5005/api/author/dashboard",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "author",
+                "dashboard"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin Api",
+      "item": [
+        {
+          "name": "Admin_Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Ram\",\r\n    \"email\": \"ram145@gmail.com\",\r\n    \"password\": \"123321\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5005/api/register",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin_Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"ram145@gmail.com\",\r\n    \"password\": \"123321\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5005/api/admin/login",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "admin",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit_Blog",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-access-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZjVmODA5NGNkYmY2MTM1ZTNiODY2MCIsIm5hbWUiOiJSYW0iLCJlbWFpbCI6InJhbTE0NUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3Nzk2OTkxNDIsImV4cCI6MTc3OTc4NTU0Mn0.CNxfVv2J5Jl4kfeRUy9LM0dH31WdiSxmYtYlJfbq-HE",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5005/api/admin/submit",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "admin",
+                "submit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Publish_Blog",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "x-access-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZjVmODA5NGNkYmY2MTM1ZTNiODY2MCIsIm5hbWUiOiJSYW0iLCJlbWFpbCI6InJhbTE0NUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3Nzk2OTkxNDIsImV4cCI6MTc3OTc4NTU0Mn0.CNxfVv2J5Jl4kfeRUy9LM0dH31WdiSxmYtYlJfbq-HE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5005/api/admin/publish/6a140ae966c8cfcce5ca5731",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "admin",
+                "publish",
+                "6a140ae966c8cfcce5ca5731"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User Api",
+      "item": [
+        {
+          "name": "User_Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Sk\",\r\n    \"email\": \"sk@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5005/api/register",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "User_Login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"sk@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:5005/api/login",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Blog",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-access-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTVkZjdhNGZkMmViMDVjMDZmMDhlNyIsIm5hbWUiOiJTayIsImVtYWlsIjoic2tAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3Nzk4MTg5MjAsImV4cCI6MTc3OTkwNTMyMH0.hI3yIBVML_TpHUaXEc9J1eFIpp8XTUkIOS2rhN5TZYY",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "localhost:5005/api/blog",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "blog"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "BlogById",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-access-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTVkZjdhNGZkMmViMDVjMDZmMDhlNyIsIm5hbWUiOiJTayIsImVtYWlsIjoic2tAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODQ5NzUyNTYsImV4cCI6MTc4NTA2MTY1Nn0.VU60XO649JmfVBtGUWkf4txRQcNVRBRix8XX1p4PrUo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "localhost:5005/api/blog/69f5f72d4cdbf6135e3b865f",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "blog",
+                "69f5f72d4cdbf6135e3b865f"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create_Like",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-access-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTVkZjdhNGZkMmViMDVjMDZmMDhlNyIsIm5hbWUiOiJTayIsImVtYWlsIjoic2tAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODQ5NzUyNTYsImV4cCI6MTc4NTA2MTY1Nn0.VU60XO649JmfVBtGUWkf4txRQcNVRBRix8XX1p4PrUo",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"blogId\": \"69f5f72d4cdbf6135e3b865f\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5005/api/create/like",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5005",
+              "path": [
+                "api",
+                "create",
+                "like"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

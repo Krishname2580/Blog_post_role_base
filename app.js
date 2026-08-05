@@ -8,6 +8,11 @@ const session=require('express-session')
 const cookieParser=require('cookie-parser')
 const flash = require('connect-flash')
 
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+const SwaggerOptions = require('./swagger.json');
+const swaggerDocument = swaggerJsDoc(SwaggerOptions);
+
 
 const app = express()
 dbConnection()
@@ -36,6 +41,8 @@ app.use((req, res, next) => {
     res.locals.error = req.flash('error');
     next();
 });
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 const route=require('./app/routes') 
 app.use(route)
@@ -45,6 +52,15 @@ app.use('/api', BlogRoute)
 
 const userAuthRoute=require('./app/routes/userAuthRoute')
 app.use('/api',userAuthRoute)
+
+const categoryRoute=require('./app/routes/categoryRoute')
+app.use('/api',categoryRoute)
+
+const commentRoute=require('./app/routes/commentRoute')
+app.use('/api',commentRoute)
+
+const likeRoute=require('./app/routes/likeRoute')
+app.use('/api',likeRoute)
 
 const PORT = 5005;
 app.listen(PORT, () => {
