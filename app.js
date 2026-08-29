@@ -42,6 +42,12 @@ app.use((req, res, next) => {
     next();
 });
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.get("/", (req, res) => {
+    res.json({
+        success: true,
+        message: "Blog API is running successfully 🚀"
+    });
+});
 
 
 const route=require('./app/routes') 
