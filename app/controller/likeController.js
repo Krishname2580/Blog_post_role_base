@@ -1,4 +1,4 @@
-const Like = require("../models/like");
+const Like = require("../models/Like");
 const Blog = require("../models/blog");
 
 class LikeController {
